@@ -555,6 +555,8 @@ class CssManager
 				$v = strtolower($v);
 			}
 
+            $bg = $this->parseCSSbackground($v);
+
 			if ($k == 'FONT') {
 				$s = trim($v);
 				preg_match_all('/\"(.*?)\"/', $s, $ff);
@@ -781,7 +783,7 @@ class CssManager
 					}
 				}
 			} else if ($k == 'BACKGROUND') {
-				$bg = $this->parseCSSbackground($v);
+
 				if ($bg['c']) {
 					$newprop['BACKGROUND-COLOR'] = $bg['c'];
 				} else {
